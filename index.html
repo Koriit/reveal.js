@@ -7,7 +7,7 @@
 		<title>reveal.js</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/league.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -22,12 +22,58 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
+
+		<style>
+			.reveal section img {
+				border: none;
+				background: none;
+				box-shadow: none;
+			}
+		</style>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+
+				<section>
+					<h1>Title</h1>
+					<h3>Subtitle</h3>
+					<p>
+						<small>By <a href="mailto:">Aleksander Stelmaczonek</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Slide title</h2>
+					<p class="fragment">
+						Slide content
+					</p>
+					<ul>
+						<li class="fragment">List item</li>
+					</ul>
+				</section>
+
+				<section>
+					<section>
+						<h2>Top slide</h2>
+						<p>
+							Vertical slides
+						</p>
+					</section>
+					<section>
+						<h3>Bottom slide</h3>
+						<p>
+							<img data-src="assets/image.png" />
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Thank you</h2>
+					<h4>Any questions?<h4>
+					<img class="animated infinite pulse" height="150" data-src="assets/icons/if_question_mark_811528.svg" />
+				</section>
+
 			</div>
 		</div>
 
@@ -39,11 +85,19 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+				width: 1028,
+				controlsTutorial: false,
 				dependencies: [
+					// Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+					{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					// Zoom in and out with Alt+click
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					// MathJax
+					{ src: 'plugin/math/math.js', async: true }
 				]
 			});
 		</script>
