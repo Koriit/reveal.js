@@ -90,6 +90,17 @@
 				menu: {
 					sticky: true
 				},
+				chalkboard: {
+					readOnly: false,
+					transition: 800,
+					color: [ 'rgba(255,0,0,1)', 'rgba(255,255,255,0.5)' ],
+				},
+				keyboard: {
+				    68: function() { RevealChalkboard.toggleNotesCanvas() },	// toggle notes canvas when 'd' is pressed
+				    67: function() { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'c' is pressed
+				    46: function() { RevealChalkboard.clear() },	// clear chalkboard when 'DEL' is pressed
+				     8: function() { RevealChalkboard.reset() },	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
+				},
 				dependencies: [
 					// Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
 					{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
@@ -102,7 +113,9 @@
 					// MathJax
 					{ src: 'plugin/math/math.js', async: true },
 					// Menu
-					{ src: 'plugin/menu/menu.js' }
+					{ src: 'plugin/menu/menu.js' },
+					// Chalkboard
+					{ src: 'plugin/chalkboard/chalkboard.js' }
 				]
 			});
 		</script>
