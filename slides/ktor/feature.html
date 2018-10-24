@@ -1,0 +1,20 @@
+<section data-menu-title="Feature">
+    <h5>Feature</h5>
+    <pre><code class="Kotlin" data-trim data-noescape>
+    class CustomFeature(configuration: Configuration) {
+        // Copies a snapshot of the mutable config into an immutable property.
+        val prop = configuration.prop
+        class Configuration {
+           var prop = &quot;value&quot; // Mutable property.
+        }
+        // Implements ApplicationFeature as a companion object.
+        companion object Feature : ApplicationFeature&lt;ApplicationCallPipeline, Configuration, CustomFeature&gt; {
+           // Creates a unique key for the feature.
+           override val key = AttributeKey&lt;CustomFeature&gt;(&quot;CustomFeature&quot;)
+           override fun install(pipeline: ApplicationCallPipeline, configure: Configuration.() -&gt; Unit): CustomFeature {
+             // Code to execute when installing the feature.
+           }
+        }
+    }
+    </code></pre>
+</section>

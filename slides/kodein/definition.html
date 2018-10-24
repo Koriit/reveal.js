@@ -1,0 +1,20 @@
+<section>
+    <h5>Definitions</h5>
+    <pre><code data-trim data-noescape>
+        // clients/module.kt
+        val clientModule = Kodein.Module {
+            bind&lt;HttpClient&gt;() with provider { HttpClient(instance()) }
+        }
+
+        // business/module.kt
+        val businessModule = Kodein.Module {
+            bind&lt;IService&gt;() with singleton { BusinessService() }
+        }
+
+        // main.kt
+        val <mark>kodein</mark> = Kodein {
+            import(clientModule)
+            import(businessModule)
+        }
+    </code></pre>
+</section>

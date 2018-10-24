@@ -1,0 +1,16 @@
+<section>
+    <h5>Upload</h5>
+    <pre><code class="Kotlin" data-trim data-noescape>
+    class Upload : Input&lt;ByteArray&gt;(contentType = Application.OctetStream) {
+        val fileName: String by header(&quot;My-File-Name&quot;)
+
+        override suspend fun Ctx.respond() {
+            File(fileName).writeBytes(body())
+
+            application.log.info(&quot;Finished upload of $fileName&quot;)
+
+            call.respondText(&quot;200 OK&quot;, contentType = Text.Plain)
+        }
+    }
+    </code></pre>
+</section>

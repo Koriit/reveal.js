@@ -1,0 +1,20 @@
+<section>
+    <h5>Test configuration</h5>
+    <pre><code data-trim data-noescape>
+        // Application.kt
+        val DictionaryApplication = Kodein {
+            import(configuration)
+            import(httpApi, allowOverride = true)
+        }
+
+        // TestApplication.kt
+        val testConfiguration = Kodein.Module() {
+            // ...
+        }
+
+        fun TestApplication() = Kodein {
+            extend(DictionaryApplication, copy = Copy.All)
+            import(testConfiguration, allowOverride = true)
+         }
+    </code></pre>
+</section>

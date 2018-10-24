@@ -1,0 +1,13 @@
+<section>
+    <h5>Testing - Basic</h5>
+    <pre><code data-trim data-noescape>
+    internal class RefreshServiceTest : KodeinAware {
+
+        override val kodein = TestApplication()
+
+        private val service: RefreshService by instance()
+
+        // Tests...
+    }
+    </code></pre>
+</section>

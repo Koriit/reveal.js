@@ -1,0 +1,18 @@
+<section data-menu-title="Feature Installation">
+    <h5>Feature Installation</h5>
+    <pre><code class="Kotlin" data-trim data-noescape>
+       override fun install(pipeline: ApplicationCallPipeline, configure: Configuration.() -> Unit): CustomFeature {
+           // It is responsibility of the install code to call the `configure` method with the mutable configuration.
+           val configuration = Configuration().apply(configure)
+
+           // Create the feature, providing the mutable configuration so the feature reads it keeping an immutable copy of the properties.
+           val feature = CustomFeature(configuration)
+
+           // Intercept a pipeline.
+           pipeline.intercept(PHASE) {
+                // Perform things in that interception point.
+           }
+           return feature
+       }
+    </code></pre>
+</section>

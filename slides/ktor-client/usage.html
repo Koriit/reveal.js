@@ -1,0 +1,8 @@
+<section>
+    <h5>Usage</h5>
+    <pre><code class="Kotlin"  data-trim data-noescape>
+        val responseStream = httpClient.get&lt;InputStream&gt;(&quot;$url/models&quot;).reader()
+        val responseString = httpClient.get&lt;String&gt;(&quot;$url/models&quot;)
+        val responseObject = httpClient.get&lt;DataModel&gt;(&quot;$url/models&quot;)
+    </code></pre>
+</section>

@@ -1,0 +1,13 @@
+<section>
+    <h5>Retrieval</h5>
+    <pre><code data-trim data-noescape>
+         bind&lt;DataModelClient&gt;() with singleton {
+            val <mark>config</mark>: Config = instance()
+
+            DataModelClient(
+                httpClient = instance(),
+                url = <mark>config[ApisConfig.Model.url]</mark>
+            )
+        }
+    </code></pre>
+</section>

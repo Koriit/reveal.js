@@ -1,0 +1,28 @@
+<section>
+    <h5>Example performance log</h5>
+    <pre><code class="json" data-trim data-noescape>
+    {
+      "@timestamp": "2019-11-04T13:18:22.296+01:00",
+      "message": "85 ms - 200 - GET http://localhost:8080/api/dictionaries/APP/items",
+      "level": "INFO",
+      "correlationId": "fa946589-42ec-4754-bca4-5b3e23921500",
+      "duration": 85,
+      "request": {
+        "method": "GET",
+        "protocol": "HTTP/1.1",
+        "url": "http://localhost:8080/api/dictionaries/APP/items",
+        "api": "GET /api/dictionaries/{dicCode}/items",
+        "route": "/api/dictionaries/{dicCode}/items",
+        "remoteHost": "unknown",
+        "contentType": "*/*",
+        "contentLength": null
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json; charset=UTF-8",
+        "contentLength": 4202
+      },
+      // Other log details
+    }
+    </code></pre>
+</section>

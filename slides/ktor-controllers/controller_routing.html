@@ -1,0 +1,15 @@
+<section>
+    <h5>Routing</h5>
+    <pre><code class="Kotlin" data-trim data-noescape>
+            route(&quot;/my-entities&quot;) {
+                GET(&quot;/{id}&quot;) { GetMyEntity() }
+                        .responds&lt;MyEntity&gt;(OK)
+                        .errors(BadRequest)
+                        .errors(NotFound)
+            }
+
+            POST(&quot;/upload&quot;) { Upload() }
+                    .responds&lt;String&gt;(OK, contentType = Text.Plain)
+                    .errors(BadRequest)
+    </code></pre>
+</section>

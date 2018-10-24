@@ -1,0 +1,17 @@
+<section>
+    <h5>Modules</h5>
+
+    <pre><code data-trim data-noescape>
+    val httpApi = Kodein.Module() {
+
+        bind&lt;Config&gt;(overrides = true) with singleton {
+            (overriddenInstance() as Config).apply {
+                addSpec(HttpApiConfig)
+            }
+        }
+
+        //...
+    }
+    </code></pre>
+
+</section>

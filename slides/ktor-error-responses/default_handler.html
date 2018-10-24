@@ -1,0 +1,20 @@
+<section>
+    <h5>Default Exception Handler</h5>
+    <ul>
+        <li class="fragment">Simplifies mapping of exceptions to status codes</li>
+        <li class="fragment">
+            Provides default API Error compatible with <a href="https://tools.ietf.org/html/rfc7807">RFC7807</a> -
+            <br/>
+            Problem Details for HTTP APIs
+        </li>
+        <li class="fragment">Mapping per global/send/receive pipeline</li>
+        <li class="fragment">
+            Can be overridden:
+            <ul>
+                <li class="fragment">handleKnown - registered errors</li>
+                <li class="fragment">handleUnknown - errors which were not registered beforehand</li>
+                <li class="fragment">interceptErrorResponse - some might not be triggered by an exception</li>
+            </ul>
+        </li>
+    </ul>
+</section>

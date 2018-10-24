@@ -1,0 +1,28 @@
+<section>
+    <h5>Testing</h5>
+    <pre><code class="Kotlin" data-trim data-noescape>
+    fun newDataModelClientHttpMock() = HttpClient(MockEngine) {
+        engine {
+            val headers = headersOf(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+
+            addHandler { request ->
+                when (request.url.fullPath) {
+                    "/models" -> respond(
+                        content = javaClass.getResource("/model_data.json").readBytes(),
+                        headers = headers
+                    )
+                    "/models/dim_dic_test_01" -> respond(
+                        content = javaClass.getResource("/dim_dic_test_01.json").readBytes(),
+                        headers = headers
+                    )
+                    else -> error("Unhandled ${request.url}")
+                }
+            }
+        }
+    }
+
+    bind&lt;DataModelClient&gt;(overrides = true) with singleton {
+        DataModelClient(httpClient = newDataModelClientHttpMock(), url = "http://test")
+    }
+    </code></pre>
+</section>

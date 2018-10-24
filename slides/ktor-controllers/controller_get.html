@@ -1,0 +1,15 @@
+<section>
+    <h5>Get</h5>
+    <pre><code class="Kotlin" data-trim data-noescape>
+    class GetMyEntity : EmptyBodyInput() {
+        val id: Int by path()
+        val someParam: Boolean by query(&quot;realParamName&quot;, default = true)
+
+        override suspend fun Ctx.respond() {
+            val entity = <mark>service</mark>.getEntity(id, someParam)
+
+            call.respond(entity)
+        }
+    }
+    </code></pre>
+</section>

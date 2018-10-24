@@ -1,0 +1,13 @@
+<section>
+    <h5>CallId Feature</h5>
+    <pre><code class="Kotlin" data-trim data-noescape>
+    install(CallId) {
+        header(HttpHeaders.XRequestId)
+        generate { UUID.randomUUID().toString() }
+        verify { it.isNotBlank() }
+    }
+
+    // Or equivalent:
+    install(UUIDCallId)
+    </code></pre>
+</section>

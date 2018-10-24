@@ -1,0 +1,21 @@
+<section>
+    <h5>Testing - Extended</h5>
+    <pre><code data-trim data-noescape>
+    internal class RefreshServiceTest : KodeinAware {
+
+        override val kodein = TestApplication {
+            bind&lt;DictionaryService&gt;(overrides = true) with singleton {
+                val service = spyk(overriddenInstance() as DictionaryService)
+                every { service.refreshDictionaries() } answers { sleep(1000); callOriginal() }
+                every { service.refreshDictionary(any()) } answers { sleep(1000); callOriginal() }
+
+                service
+            }
+        }
+
+        private val service: RefreshService by instance()
+
+        // Tests...
+    }
+    </code></pre>
+</section>

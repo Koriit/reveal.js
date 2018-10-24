@@ -1,0 +1,13 @@
+<section>
+    <h5>Spec</h5>
+    <pre><code data-trim data-noescape>
+        <mark>object</mark> ApisConfig : ConfigSpec(&quot;apis&quot;) {
+
+            val bigDicThreshold by optional(100000) // Int
+
+            object Model : ConfigSpec() {
+                val url by required&lt;String&gt;()
+            }
+        }
+    </code></pre>
+</section>

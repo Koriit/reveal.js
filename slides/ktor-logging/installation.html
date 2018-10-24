@@ -1,0 +1,17 @@
+<section>
+    <h5>Installation</h5>
+    <pre><code class="Kotlin" data-trim data-noescape>
+        install(UUIDCallId)
+        install(DoubleReceive) {
+            receiveEntireContent = true
+        }
+        install(Logging) {
+            logRequests = true
+            logResponses = true
+            logFullUrl = true
+            logBody = true
+            logHeaders = true
+            filterPath("/api", "/version", "/openapi")
+        }
+    </code></pre>
+</section>

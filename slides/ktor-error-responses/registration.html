@@ -1,0 +1,18 @@
+<section>
+    <h5>Error Registration</h5>
+    <ul>
+        <li class="fragment">Some mappings only make sense in specific pipelines</li>
+        <li class="fragment">
+            Global registration
+            <pre><code>register&lt;T: Throwable&gt;(HttpStatusCode)</code></pre>
+        </li>
+        <li class="fragment">
+            For send pipeline
+            <pre><code>registerSend&lt;T: Throwable&gt;(HttpStatusCode)</code></pre>
+        </li>
+        <li class="fragment">
+            For receive pipeline
+            <pre><code>registerReceive&lt;T: Throwable&gt;(HttpStatusCode)</code></pre>
+        </li>
+    </ul>
+</section>

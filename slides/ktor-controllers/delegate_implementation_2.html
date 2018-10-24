@@ -1,0 +1,17 @@
+<section>
+    <h5>Delegate Implementation - a map</h5>
+    <pre class="fragment"><code class="Kotlin" data-trim data-noescape>
+    class User(val map: Map&lt;String, Any?&gt;) : Map by map {
+        val name: String by map
+        val age: Int     by map
+    }
+
+    val user = User(mapOf(
+        "name" to "John Doe",
+        "age"  to 25
+    ))
+
+    val name = user.name
+    val age = user["age"]
+    </code></pre>
+</section>

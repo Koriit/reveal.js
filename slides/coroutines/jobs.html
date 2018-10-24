@@ -1,0 +1,16 @@
+<section>
+    <h5>Jobs</h5>
+    <ul>
+        <li class="fragment">Jobs provide coroutine status</li>
+        <li class="fragment">Allow cancelling(coroutine must be cancellable)</li>
+        <li class="fragment">Allow building parent-child hierarchy of coroutines(structured concurrency)</li>
+        <li class="fragment">Exceptions from child coroutines propagate to parent(cancellation too)</li>
+    </ul>
+    <pre class="fragment"><code class="Kotlin" data-trim data-noescape>
+        suspend fun concurrentSum(): Int = coroutineScope {
+            val one = async { doSomethingUsefulOne() }
+            val two = async { doSomethingUsefulTwo() }
+            one.await() + two.await()
+        }
+    </code></pre>
+</section>

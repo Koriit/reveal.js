@@ -1,0 +1,19 @@
+<section>
+    <h5>Example Scope</h5>
+    <pre><code class="Kotlin" data-trim data-noescape>
+    class RefreshService : CoroutineScope {
+        override val coroutineContext = Dispatchers.IO
+
+        private val refreshWorker = launch {
+            // ...
+        }
+
+        fun launchRefresh(scope: CoroutineScope) {
+            val job = async(scope.coroutineContext) {
+                // ...
+            }
+            //...
+        }
+    }
+    </code></pre>
+</section>

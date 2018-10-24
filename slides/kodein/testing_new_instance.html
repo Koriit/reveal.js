@@ -1,0 +1,13 @@
+<section>
+    <h5>Testing - Creating Instances</h5>
+    <pre><code data-trim data-noescape>
+    @Test
+    fun `should gracefully close`() {
+        val service by newInstance {
+            RefreshService(dicService = instance())
+        }
+
+        service.close()
+    }
+    </code></pre>
+</section>

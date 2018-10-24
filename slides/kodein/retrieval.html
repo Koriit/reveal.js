@@ -1,0 +1,18 @@
+<section>
+    <h5>Retrieval</h5>
+    <pre><code data-trim data-noescape>
+        with(kodein) {
+            // <mark>Kodein</mark> interface: Lazy retrieval
+            val service : IService <mark>by</mark> instance()
+            val client : HttpClient by instance()
+
+            // <mark>DKodein</mark> interface: Direct retrieval
+            val service : IService <mark>=</mark> <mark>direct</mark>.instance()
+            val client : HttpClient = direct.instance()
+
+            // Generic param retrieval
+            val service by instance&lt;IService&gt;()
+            val client = direct.instance&lt;HttpClient&gt;()
+        }
+    </code></pre>
+</section>

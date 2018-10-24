@@ -1,0 +1,16 @@
+<section>
+    <h5>Example Element</h5>
+    <pre><code class="Kotlin" data-trim data-noescape>
+    // Definition
+    public data class CoroutineName(
+        val name: String
+    ) : AbstractCoroutineContextElement(CoroutineName) {
+        public companion object Key : CoroutineContext.Key&lt;CoroutineName&gt;
+
+        override fun toString(): String = &quot;CoroutineName($name)&quot;
+    }
+
+    // Retrieval
+    val name: CoroutineName = <mark>coroutineContext</mark>[CoroutineName]
+    </code></pre>
+</section>

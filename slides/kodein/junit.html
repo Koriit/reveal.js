@@ -1,0 +1,14 @@
+<section>
+    <h5>JUnit5 caveats</h5>
+    <ul>
+        <li class="fragment">JUnit creates new object for each test method</li>
+        <li class="fragment">Can be one object per test class</li>
+        <li class="fragment">Controlled by annotation or properties</li>
+        <li class="fragment">
+            test/resources/junit-platform.properties
+            <pre><code data-trim data-noescape>
+                junit.jupiter.testinstance.lifecycle.default=per_class
+            </code></pre>
+        </li>
+    </ul>
+</section>

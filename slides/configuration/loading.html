@@ -1,0 +1,16 @@
+<section>
+    <h5>Loading</h5>
+    <pre><code data-trim data-noescape>
+        bind&lt;Config&gt;() with singleton {
+            Config()
+                    .apply {
+                        addSpec(ApplicationConfig)
+                        addSpec(DictionaryConfig)
+                        addSpec(ApisConfig)
+                    }
+                    .from.yaml.resource("config.yaml")
+                    .from.env()
+                    .from.systemProperties()
+        }
+    </code></pre>
+</section>

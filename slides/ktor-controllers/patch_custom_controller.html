@@ -1,0 +1,21 @@
+<section>
+    <h5>Custom PATCH Example - Controller</h5>
+    <pre class="fragment"><code class="Kotlin" data-trim data-noescape>
+    class UpdateUser : Input&lt;UserPatch&gt;() {
+        val id: Long by path()
+
+        override suspend fun Ctx.respond() {
+            val patch: UserPatch = body()
+            val user = service.getUser(id)
+            service.save(<mark>patch.updated(user)</mark>)
+
+            call.respond(NoContent, EmptyContent)
+        }
+    }
+    </code></pre>
+    <pre class="fragment"><code class="Kotlin" data-trim data-noescape>
+    PUT(&quot;/users/{id}&quot;) { UpdateUser() }
+        .responds&lt;EmptyContent&gt;(NoContent)
+        .errors(BadRequest)
+    </code></pre>
+</section>

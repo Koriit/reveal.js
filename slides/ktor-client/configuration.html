@@ -1,0 +1,20 @@
+<section>
+    <h5>Configuration</h5>
+    <pre><code class="Kotlin"  data-trim data-noescape>
+    bind&lt;HttpClient&gt;() with provider {
+        HttpClient {
+            install(DefaultRequest) {
+                header(HttpHeaders.XRequestId, correlationId)
+            }
+            install(ClientLogging) {
+                logFullUrl = true
+                logHeaders = true
+                logBody = true
+            }
+            install(JsonFeature) {
+                serializer = JacksonSerializer(instance())
+            }
+        }
+    }
+    </code></pre>
+</section>

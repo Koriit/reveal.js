@@ -1,0 +1,20 @@
+<section>
+    <h5>As Kodein module</h5>
+    <pre><code class="Kotlin" data-trim data-noescape>
+    val httpApi = Kodein.Module() {
+        bind&lt;ApplicationEngine&gt;() with singleton {
+            embeddedServer(CIO, <mark>serverConfig()</mark>)
+        }
+        on(Start) {
+            direct
+                .instance&lt;ApplicationEngine&gt;()
+                .start()
+        }
+        on(Stop) {
+            direct
+                .instance&lt;ApplicationEngine&gt;()
+                .stop(gracePeriodMillis=3000, timeoutMillis=5000)
+        }
+    }
+    </code></pre>
+</section>

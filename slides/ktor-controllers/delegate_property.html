@@ -1,0 +1,23 @@
+<section>
+    <h5>Delegate Property</h5>
+    <pre class="fragment"><code class="Kotlin" data-trim data-noescape>
+    class Example {
+        var property: String by Delegate()
+
+        val lazyProp: String by lazy {
+            someComplexComputation(property)
+        }
+    }
+    </code></pre>
+    <pre class="fragment"><code class="Kotlin" data-trim data-noescape>
+    class User(val map: Map&lt;String, Any?&gt;) {
+        val name: String by map
+        val age: Int     by map
+    }
+
+    val user = User(mapOf(
+        "name" to "John Doe",
+        "age"  to 25
+    ))
+    </code></pre>
+</section>

@@ -1,0 +1,20 @@
+<section>
+    <h5>PATCH Example - Domain</h5>
+    <pre class="fragment"><code class="Kotlin" data-trim data-noescape>
+    data class User(
+        val id: Long,
+        val login: String,
+        val name: String,
+        val age: Int,
+        val address: Address
+    )
+    </code></pre>
+    <pre class="fragment"><code class="Kotlin" data-trim data-noescape>
+    data class Address(
+        val id: Long,
+        val line1: String,
+        val line2: String<mark>?</mark>,
+        val line3: String<mark>?</mark>
+    )
+    </code></pre>
+</section>

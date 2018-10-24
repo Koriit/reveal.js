@@ -1,0 +1,14 @@
+<section>
+    <h5>Coroutine Scope</h5>
+    <pre class="fragment"><code class="Kotlin" data-trim data-noescape>
+    public interface CoroutineScope {
+        public val coroutineContext: CoroutineContext
+    }
+    </code></pre>
+    <ul>
+        <li class="fragment">Just another "name" for same concept - coroutine context</li>
+        <li class="fragment">Serves specific purpose</li>
+        <li class="fragment">Provides outer coroutine context</li>
+        <li class="fragment"><code>GlobalScope</code> is equivalent of EmptyCoroutineContext</li>
+    </ul>
+</section>

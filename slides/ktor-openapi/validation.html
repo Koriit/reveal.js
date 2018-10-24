@@ -1,0 +1,54 @@
+<section>
+    <h5>Validation</h5>
+    <pre><code style="max-height: 500px" class="Kotlin" data-trim data-noescape>
+    class OpenApiTest : KodeinAware {
+
+        private val log = logger {}
+
+        override val kodein = TestApplication()
+
+        private val server: TestApplicationEngine by instance()
+
+        @BeforeAll
+        fun start() {
+            server.start()
+        }
+
+        @AfterAll
+        fun stop() {
+            server.stop(0, 0)
+        }
+
+        @Test
+        fun testSpec() {
+            log.info("Analyzing Ktor server...")
+            val analyzer = KtorOpenAPIAnalyzer(
+                    ktor = server.application,
+                    basePaths = listOf("/version", "/api"),
+                    defaultResponseHeaders = listOf(HttpHeader(XRequestId)),
+                    defaultErrorType = ApiError::class
+            )
+
+            val source: OpenAPI = analyzer.analyze()
+
+            log.info("Reading OpenAPI spec...")
+            val doc: OpenAPI = OpenAPIReader().load(javaClass.getResourceAsStream("/openapi.yaml"))
+
+            log.info("Validating spec...")
+            val errors = OpenAPIMatcher().match(doc, source)
+
+            if (errors.isNotEmpty()) {
+                log.info("Result of server analysis:\n{}", source)
+
+                errors.forEach {
+                    log.error(it)
+                }
+
+                fail("There are ${errors.size} validation errors!")
+            } else {
+                log.info("OK!")
+            }
+        }
+    }
+    </code></pre>
+</section>

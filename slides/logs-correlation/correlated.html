@@ -1,0 +1,16 @@
+<section>
+    <h5>Correlation</h5>
+    <pre><code class="Kotlin" data-trim data-noescape>
+    // ... Threaded code (Correlation #1)
+    val job = launch(correlated()) {
+        // (Correlation #2)
+        while (isActive) {
+            withCorrelation {
+                // (Correlation #3)
+            }
+        }
+        // (Correlation #2)
+    }
+    // ... Threaded code (Correlation #1)
+    </code></pre>
+</section>

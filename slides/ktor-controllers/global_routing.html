@@ -1,0 +1,14 @@
+<section>
+    <h5>Global routing</h5>
+    <pre><code class="Kotlin" data-trim data-noescape>
+        install(Routing) {
+            appVersionController(instance())
+
+            route("/api") {
+                deployController()
+                RefreshController(instance()).run { register() }
+                DictionariesController(instance(), instance()).run { register() }
+            }
+        }
+    </code></pre>
+</section>

@@ -1,0 +1,17 @@
+<section>
+    <h5>PATCH Example - Patches</h5>
+    <pre class="fragment"><code class="Kotlin" data-trim data-noescape>
+    class UserPatch : PatchOf&lt;User&gt;() {
+        <mark>var</mark> name <mark>by</mark> patchOf(User::name)
+        var age by patchOf(User::age)
+        var address by patchOf(User::address, <mark>by = AddressPatch::class</mark>)
+    }
+    </code></pre>
+    <pre class="fragment"><code class="Kotlin" data-trim data-noescape>
+    class AddressPatch : PatchOf&lt;Address&gt;() {
+        var line1 by patchOf(Address::line1)
+        var line2 by patchOf(Address::line2)
+        var line3 by patchOf(Address::line3)
+    }
+    </code></pre>
+</section>

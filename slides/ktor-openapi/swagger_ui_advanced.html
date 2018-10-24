@@ -1,0 +1,17 @@
+<section>
+    <h5>Swagger UI - Advanced</h5>
+    <pre><code class="Kotlin" data-trim data-noescape>
+    install(Routing) {
+        val openapi = {}.javaClass.getResourceAsStream("/openapi.yaml").reader().readText()
+
+        openAPIController(
+            openapi = apiDoc,
+            projectVersion = buildInfo.projectVersion,
+            scheme = config[scheme],
+            host = "${config[host]}:${config[port]}",
+            basePath = rootPath
+        )
+        swaggerUIController()
+    }
+    </code></pre>
+</section>

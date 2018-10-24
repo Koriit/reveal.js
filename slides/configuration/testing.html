@@ -1,0 +1,17 @@
+<section>
+    <h5>Test configuration</h5>
+
+    <pre><code data-trim data-noescape>
+    val testConfiguration = Kodein.Module() {
+
+        bind&lt;Config&gt;(overrides = true) with singleton {
+            val config = (overriddenInstance() as Config)
+
+            config.from.yaml.resource(&quot;config-test.yaml&quot;)
+        }
+
+        // ...
+    }
+    </code></pre>
+
+</section>

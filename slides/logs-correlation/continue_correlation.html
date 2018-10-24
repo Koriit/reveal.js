@@ -1,0 +1,19 @@
+<section>
+    <h5>Continue Correlation</h5>
+    <pre><code class="Kotlin" data-trim data-noescape>
+    // ... Threaded code (Correlation #1, no SubCorrelation)
+    val job = async(continueCorrelation(), start=LAZY) {
+        // (Correlation #1, no SubCorrelation)
+    }
+    // ... Other threaded code (Correlation #2, no SubCorrelation)
+    launch(subCorrelated()) {
+        // (Correlation #2, SubCorrelation #1)
+        continueCorrelation((job as Continuation<*>).context) {
+            // (Correlation #1, no SubCorrelation)
+            val value = job.await()
+            // (Correlation #1, no SubCorrelation)
+        }
+        // (Correlation #2, SubCorrelation #1)
+    }
+    </code></pre>
+</section>

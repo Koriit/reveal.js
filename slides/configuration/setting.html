@@ -1,0 +1,27 @@
+<section>
+    <h5>Setting values</h5>
+
+    <div class="fragment">
+        <h6>config.yaml</h6>
+        <pre><code data-trim data-noescape>
+            // config.yaml
+            apis:
+              model:
+                url: "http://datalake.dev.vodeno.net/data-model/api"
+        </code></pre>
+    </div>
+
+    <div class="fragment">
+        <h6>ENV variable</h6>
+        <pre><code data-trim data-noescape>
+            export APIS_MODEL_URL="http://datalake.dev.vodeno.net/data-model/api"
+        </code></pre>
+    </div>
+
+    <div class="fragment">
+        <h6>System properties</h6>
+        <pre><code data-trim data-noescape>
+            -Dapis.model.url="http://datalake.dev.vodeno.net/data-model/api"
+        </code></pre>
+    </div>
+</section>

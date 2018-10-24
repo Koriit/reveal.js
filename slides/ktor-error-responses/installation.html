@@ -1,0 +1,17 @@
+<section>
+    <h5>Installation</h5>
+    <pre><code class="Kotlin" data-trim data-noescape>
+    install(ErrorResponses) {
+        handler&lt;DefaultExceptionHandler&gt; {
+            // Domain
+            register&lt;IncorrectSchemaException&gt;(BadRequest)
+            register&lt;NotSupportedException&gt;(BadRequest)
+            register&lt;ItemNotFoundException&gt;(NotFound)
+            // Jackson
+            registerReceive&lt;JsonProcessingException&gt;(BadRequest)
+        }
+        // Classic handler, not recommended
+        exception&lt;ResponseStatusException&gt; { cause -&gt; /* handler */ }
+    }
+    </code></pre>
+</section>

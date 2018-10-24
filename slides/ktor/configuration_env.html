@@ -1,0 +1,20 @@
+<section>
+    <h5>Environment Configuration</h5>
+    <pre><code class="Kotlin" data-trim data-noescape>
+    fun DKodein.serverConfig() = applicationEngineEnvironment {
+        val config: Config = instance()
+
+        log = logger {}
+        rootPath = config[HttpApiConfig.rootPath]
+        parentCoroutineContext += continueCorrelation()
+        parentCoroutineContext += log.watched(shutdown = true)
+
+        connector {
+            port = config[HttpApiConfig.port]
+        }
+        module {
+            // Features installation...
+        }
+    }
+    </code></pre>
+</section>

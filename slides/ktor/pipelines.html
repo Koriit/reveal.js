@@ -1,0 +1,17 @@
+<section>
+    <h5>Pipelines</h5>
+        <ul>
+            <li class="fragment">
+                Sequence of functions
+                <ul>
+                    <li class="fragment">Ordered by phases</li>
+                    <li class="fragment">Inside a phase ordered by definition order</li>
+                </ul>
+            </li>
+            <li class="fragment">Can be dynamically extended with new phases</li>
+            <li class="fragment">All the functions are suspending, thus the whole pipeline is asynchronous</li>
+            <li class="fragment">Used in Ktor to plug functionality in at the right place</li>
+            <li class="fragment">They can be nested, effectively creating sub-pipelines</li>
+            <li class="fragment">Pipelines contain context and a subject</li>
+        </ul>
+</section>

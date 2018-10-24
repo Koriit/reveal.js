@@ -1,0 +1,30 @@
+<section>
+    <h5>Testing</h5>
+    <pre><code data-trim data-noescape>
+    internal class VersionControllerTest : KodeinAware {
+        override val kodein = TestApplication()
+
+        private val server: TestApplicationEngine by instance()
+
+        @BeforeAll
+        fun start() {
+            server.start()
+        }
+
+        @AfterAll
+        fun stop() {
+            server.stop(0, 0)
+        }
+
+        @Test
+        fun `should return current version`() = with(server) {
+            with(handleRequest(HttpMethod.Get, "/version") {
+                // request builder
+            }) {
+                // assertions with "response"
+                assertThat(response.status(), IsEqual(OK))
+            }
+        }
+    }
+    </code></pre>
+</section>

@@ -1,0 +1,17 @@
+<section>
+    <h5>Custom PATCH Example - Patch</h5>
+    <pre class="fragment"><code class="Kotlin" data-trim data-noescape>
+    class UserPatch : PatchOf&lt;User&gt;() {
+        var name by patchOf(User::name)
+        var age by patchOf(User::age)
+        var version: Long = -1 // not a delegate - not mapped
+
+        override fun updated(obj: User): User {
+            if (version != obj.version) {
+                throw Conflict409Exception()
+            }
+            return super.updated(obj)
+        }
+    }
+    </code></pre>
+</section>
