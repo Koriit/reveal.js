@@ -115,7 +115,9 @@
 					// Menu
 					{ src: 'plugin/menu/menu.js' },
 					// Chalkboard
-					{ src: 'plugin/chalkboard/chalkboard.js' }
+					{ src: 'plugin/chalkboard/chalkboard.js' },
+					// External files
+					{ src: 'plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external],[data-external-replace]' ); } }
 				]
 			});
 		</script>
