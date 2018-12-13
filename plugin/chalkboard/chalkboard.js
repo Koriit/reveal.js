@@ -777,6 +777,8 @@ console.log( 'Create printout for slide ' + storage[1].data[i].slide.h + "." + s
 
 
 	function startDrawing( x, y, erase ) {
+			[x, y] = transformPosition(x, y);
+
 			var ctx = drawingCanvas[mode].context;
 			var scale = drawingCanvas[mode].scale;
 			var xOffset = drawingCanvas[mode].xOffset;
@@ -811,6 +813,8 @@ console.log( 'Create printout for slide ' + storage[1].data[i].slide.h + "." + s
 	}
 
 	function drawSegment( x, y, erase ) {
+		[x, y] = transformPosition(x, y);
+
 		var ctx = drawingCanvas[mode].context;
 		var scale = drawingCanvas[mode].scale;
 		var xOffset = drawingCanvas[mode].xOffset;
@@ -841,6 +845,18 @@ console.log( 'Create printout for slide ' + storage[1].data[i].slide.h + "." + s
 			}
 			event = null;
 		}
+	}
+
+	function transformPosition(x, y) {
+		if (document.documentElement.classList.contains("zoomed")) {
+			var transformation = window.getComputedStyle(document.body).getPropertyValue("transform").match(/(-?[0-9\.]+)/g);
+			if (transformation != null) {
+				x = (x - transformation[4] - drawingCanvas[mode].xOffset*(transformation[0]-1)) / transformation[0];
+				y = (y - transformation[5] - drawingCanvas[mode].yOffset*(transformation[3]-1)) / transformation[3]; 
+			}
+		}
+
+		return [x, y];
 	}
 
 
