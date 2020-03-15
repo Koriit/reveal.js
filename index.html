@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -43,35 +43,12 @@
 					</p>
 				</section>
 
-				<section>
-					<h2>Slide title</h2>
-					<p class="fragment">
-						Slide content
-					</p>
-					<ul>
-						<li class="fragment">List item</li>
-					</ul>
-				</section>
-
-				<section>
-					<section>
-						<h2>Top slide</h2>
-						<p>
-							Vertical slides
-						</p>
-					</section>
-					<section>
-						<h3>Bottom slide</h3>
-						<p>
-							<img data-src="assets/image.png" />
-						</p>
-					</section>
-				</section>
+                <section data-external-replace="slides/slide/index.html"> </section>
 
 				<section>
 					<h2>Thank you</h2>
-					<h4>Any questions?<h4>
-					<img class="animated infinite pulse" height="150" data-src="assets/icons/if_question_mark_811528.svg" />
+					<h4>Any questions?</h4>
+					<img class="animated infinite pulse" height="150" data-src="assets/icons/if_question_mark_811528.svg" alt=""/>
 				</section>
 
 			</div>
@@ -85,7 +62,10 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+                history: true,
+                fragmentInURL: true,
 				width: 1028,
+				height: 800,
 				controlsTutorial: false,
 				menu: {
 					sticky: true
@@ -115,7 +95,9 @@
 					// Menu
 					{ src: 'plugin/menu/menu.js' },
 					// Chalkboard
-					{ src: 'plugin/chalkboard/chalkboard.js' }
+					{ src: 'plugin/chalkboard/chalkboard.js' },
+					// External files
+					{ src: 'plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external],[data-external-replace]' ); } }
 				]
 			});
 		</script>
