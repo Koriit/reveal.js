@@ -1,0 +1,19 @@
+<section>
+    <h4>Receive Select Expression</h4>
+    <pre><code class="Kotlin" data-trim data-noescape>
+    val result : String = select&lt;String&gt; {
+        a.onReceiveOrNull { value -&gt;
+            if (value == null)
+                &quot;Channel 'a' is closed&quot;
+            else
+                &quot;a -&gt; '$value'&quot;
+        }
+        b.onReceiveOrNull { value -&gt;
+            if (value == null)
+                &quot;Channel 'b' is closed&quot;
+            else
+                &quot;b -&gt; '$value'&quot;
+        }
+    }
+    </code></pre>
+</section>

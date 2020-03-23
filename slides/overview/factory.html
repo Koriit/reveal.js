@@ -1,0 +1,13 @@
+<section>
+    <h4>Channel Factory</h4>
+    <pre><code class="Kotlin" data-trim data-noescape>
+        public fun &lt;E&gt; Channel(capacity: Int = RENDEZVOUS): Channel&lt;E&gt; =
+            when (capacity) {
+     /*  0 */   RENDEZVOUS -&gt; RendezvousChannel()
+     /* -1 */   UNLIMITED -&gt; LinkedListChannel()
+     /* -2 */   CONFLATED -&gt; ConflatedChannel()
+     /* -3 */   BUFFERED -&gt; ArrayChannel(CHANNEL_DEFAULT_CAPACITY)
+                else -&gt; ArrayChannel(capacity)
+            }
+    </code></pre>
+</section>

@@ -1,0 +1,18 @@
+<section data-menu-title="Type Caveat">
+    <div class="fragment">
+        <h4>Type Alias</h4>
+        <pre><code data-trim data-noescape>
+            typealias EventStream = Channel&lt;Event&gt;
+
+            val stream: EventStream = Channel(UNLIMITED) // fine
+            val stream2 = EventStream(10) // won't compile
+        </code></pre>
+    </div>
+
+    <div class="fragment">
+        <h4>Concrete type</h4>
+        <pre><code data-trim data-noescape>
+            class EventStream : Channel&lt;Event&gt; by Channel(UNLIMITED)
+        </code></pre>
+    </div>
+</section>

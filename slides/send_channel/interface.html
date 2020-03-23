@@ -1,0 +1,21 @@
+<section>
+    <h4>Send Channel Interface</h4>
+    <pre><code class="Kotlin" data-trim data-noescape>
+    public interface SendChannel&lt;in E&gt; {
+
+        @ExperimentalCoroutinesApi
+        public val isClosedForSend: Boolean
+
+        public suspend fun send(element: E)
+
+        public val onSend: SelectClause2&lt;E, SendChannel&lt;E&gt;&gt;
+
+        public fun offer(element: E): Boolean
+
+        public fun close(cause: Throwable? = null): Boolean
+
+        @ExperimentalCoroutinesApi
+        public fun invokeOnClose(handler: (cause: Throwable?) -&gt; Unit)
+    }
+    </code></pre>
+</section>

@@ -1,0 +1,20 @@
+<section>
+    <h4>Receive Channel Interface</h4>
+    <pre><code class="Kotlin" data-trim data-noescape>
+    public interface ReceiveChannel&lt;out E&gt; {
+        @ExperimentalCoroutinesApi
+        public val isClosedForReceive: Boolean
+
+        @ExperimentalCoroutinesApi
+        public val isEmpty: Boolean
+
+        public suspend fun receive(): E
+
+        public val onReceive: SelectClause1&lt;E&gt;
+
+        public fun poll(): E?
+
+        public fun cancel(cause: CancellationException? = null)
+    }
+    </code></pre>
+</section>
